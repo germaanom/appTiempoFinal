@@ -12,6 +12,7 @@ export class ProvinciasComponent implements OnInit {
   provincias: Array<String> = []
 
   idProvincia:string = ''
+  idP:string = 'ID'
   
   provincia: Provincia = {
     codprov: '',
@@ -38,7 +39,8 @@ export class ProvinciasComponent implements OnInit {
       this.provincias = resp
     })
   }
-  buscarMunicipio(): void {
+
+  buscarProvincia(): void {
     if (this.idProvincia != '') {
       this.apiservice.getProvinciasbyid(this.idProvincia).subscribe(resp => {
         this.provincia = resp

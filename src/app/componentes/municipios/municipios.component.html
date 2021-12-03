@@ -51,10 +51,12 @@
             <input type="submit" value="Buscar" (click)="buscarMunicipio()">
           </form>
           <br>
-          <p>Municipio: <b>{{ municipio.nombre }}</b></p>
-          <p>
-            Con una maxima de <b>{{ tiempoM.maxima }}</b> grados y una minima de <b>{{ tiempoM.minima }}</b> grados
-          </p>
+          <div *ngIf="municipio.nombre!=''">
+            <p>Municipio: <b>{{ municipio.nombre }}</b></p>
+            <p>
+              Hoy ( {{ tiempoM.fecha }}): Maxima de <b>{{ tiempoM.maxima }}</b> ºC - Minima de <b>{{ tiempoM.minima }}</b> ºC
+            </p>
+          </div>
         </div>
       </div>
     </div>

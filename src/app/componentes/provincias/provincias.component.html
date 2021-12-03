@@ -44,12 +44,23 @@
           <select name="miselect2" [(ngModel)]="idProvincia">
             <option [ngValue]="item" *ngFor="let item of provincias">{{item}}</option>
           </select>
-          <input type="submit" value="Buscar" (click)="buscarMunicipio()">
+          <input type="submit" value="Buscar" (click)="buscarProvincia()">
         </form>
-        <p>
-          La provincia <b>{{ provincia.nombre }}</b> con capital <b>{{ provincia.capital }}</b> tiene hoy
-          <b>{{ tiempo.hoy }}</b>
-        </p>
+        <div *ngIf="tiempo.codprov!=''">
+          <p><b>Provincia:</b> {{ provincia.nombre }} - <b>Capital:</b> {{ provincia.capital }}</p>
+        </div>
+        <div *ngIf="tiempo.hoy!=''">
+          <p>
+            <b>Hoy ({{ tiempo.fecha }}):</b>
+            {{ tiempo.hoy }}
+          </p>
+        </div>
+        <div *ngIf="tiempo.manana!=''">
+          <p>
+            <b>Mañana:</b>
+            {{ tiempo.manana }}
+          </p>
+        </div>
         </div>
       </div>
     </div>   

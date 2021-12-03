@@ -47,6 +47,7 @@ export class MunicipiosComponent implements OnInit {
       this.apiservice.getMunicipiosbyid(this.idMunicipio).subscribe(resp => {
         this.municipio = resp
       })
+      this.idMunicipio=''
     }
   }
 }
