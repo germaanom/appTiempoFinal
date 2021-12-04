@@ -36,25 +36,25 @@
           
           <!-- Escribimos frases para que el usuario las lea -->
           <h1 class="mb-3">El Tiempo meteorológico en toda España</h1>
-          <a class="mb-3">Busca por Municipio: </a>
-  
+
           <!-- Y le añadimos un pequño formulario donde metera el nombre de la Provincia o Municipio -->
           <br><br>
           <form>
-            <div class="form-group mx-sm-3 mb-2">
-              <label for="nombreEjemplo" class="sr-only">Nombre:</label>
-              <label>Municipio:</label><input type="text" name="idMuni" [(ngModel)]="idMunicipio" /><br />
-            </div>
-            <br>
-  
+            <!--<div class="form-group mx-sm-3 mb-2">
+              <label style="margin-right: 10px">Municipio:</label><input type="text" name="idMuni" [(ngModel)]="idMunicipio" /><br />
+            </div>--->
+            <select style="margin-right: 4px" name="miselect2" [(ngModel)]="idMunicipio">
+              <option [ngValue]="item" *ngFor="let item of municipios">{{item}}</option>
+            </select>
             <!-- Creamos el boton para que el usuario pueda subir el nombre escrito en el formulario -->
-            <input type="submit" value="Buscar" (click)="buscarMunicipio()">
+            <input type="submit" value="Buscar" (click)="buscarMunicipio()" (click)="mostrarM = true">
           </form>
           <br>
-          <p>Municipio: <b>{{ municipio.nombre }}</b></p>
-          <p>
-            Con una maxima de <b>{{ tiempoM.maxima }}</b> grados y una minima de <b>{{ tiempoM.minima }}</b> grados
-          </p>
+          <div *ngIf="mostrarM">
+            <p>
+              El municipio {{ municipio.nombre }}tiene una maxima de <b>{{ tiempoM.maxima }}</b> grados y una minima de <b>{{ tiempoM.minima }}</b> grados
+            </p>
+        </div>
         </div>
       </div>
     </div>

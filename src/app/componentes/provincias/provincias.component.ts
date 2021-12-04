@@ -10,7 +10,7 @@ import { ApiserviceService } from '../../services/apiservice.service'
 })
 export class ProvinciasComponent implements OnInit {
   provincias: Array<String> = []
-
+  mostrar: boolean = false;
   idProvincia:string = ''
   
   provincia: Provincia = {
@@ -37,6 +37,8 @@ export class ProvinciasComponent implements OnInit {
     this.apiservice.getProvincias().subscribe(resp => {
       this.provincias = resp
     })
+
+    
   }
   buscarMunicipio(): void {
     if (this.idProvincia != '') {
@@ -48,5 +50,6 @@ export class ProvinciasComponent implements OnInit {
       })
     }
   }
+  
 
 }

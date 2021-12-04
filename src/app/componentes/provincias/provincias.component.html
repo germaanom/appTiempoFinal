@@ -35,21 +35,24 @@
           
           <!-- Escribimos frases para que el usuario las lea -->
           <h1 class="mb-3">El Tiempo meteorológico en toda España</h1>
-          <a class="mb-3">Busca por Provincia: </a>
   
           <!-- Y le añadimos un pequño formulario donde metera el nombre de la Provincia o Municipio -->
           <br><br>
           <form>
-          <label>Provincia:</label>
-          <select name="miselect2" [(ngModel)]="idProvincia">
+            <label style="margin-right: 10px;">Buscar por provincia: </label>
+            <br>
+          <select style="margin-right: 4px" name="miselect2" [(ngModel)]="idProvincia">
             <option [ngValue]="item" *ngFor="let item of provincias">{{item}}</option>
           </select>
-          <input type="submit" value="Buscar" (click)="buscarMunicipio()">
+          <input type="submit" value="Buscar" (click)="buscarMunicipio()" (click)="mostrar = true">
         </form>
-        <p>
-          La provincia <b>{{ provincia.nombre }}</b> con capital <b>{{ provincia.capital }}</b> tiene hoy
-          <b>{{ tiempo.hoy }}</b>
-        </p>
+        <br><br>
+        <div *ngIf=>
+          <p>
+            La provincia <b>{{ provincia.nombre }}</b> con capital <b>{{ provincia.capital }}</b> tiene hoy
+            <b>{{ tiempo.hoy }}</b>
+          </p>
+      </div>
         </div>
       </div>
     </div>   

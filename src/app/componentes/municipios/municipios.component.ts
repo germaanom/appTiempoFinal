@@ -14,6 +14,7 @@ export class MunicipiosComponent implements OnInit {
   myControl = new FormControl();
   idMunicipio: string = ''
   municipios: Array<String> = []
+  mostrarM = false
 
   municipio: Municipio = {
     codmuni: '',
