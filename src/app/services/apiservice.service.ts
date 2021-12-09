@@ -41,5 +41,12 @@ export class ApiserviceService {
     return this.http.get<Array<String>>('http://localhost:5000/municipios/')
   }
 
+  getProvinciasFecha(id: string, fecha: any): Observable<TiempoProvincia> {
+    return this.http.get<TiempoProvincia>('http://localhost:5000/tiempoprovinciaFecha/' + id + '/' + fecha)
+  }
+
+  getTemperaturaMunicipiosFecha(id: string, fecha: any): Observable<TiempoMunicipio> {
+    return this.http.get<TiempoMunicipio>('http://localhost:5000/tiempomunicipioFecha/' + id + '/' + fecha)
+  }
 
 }

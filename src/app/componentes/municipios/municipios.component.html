@@ -45,7 +45,9 @@
               <label style="padding-right: 10px;">Municipio: </label><input type="text" name="idMuni" [(ngModel)]="idMunicipio" /><br />
             </div>
             <br>
-  
+            <label style="padding-right: 10px;">Fecha:</label>
+            <input type="date" name="fecha" [(ngModel)]="fecha" />
+            <br>
             <!-- Creamos el boton para que el usuario pueda subir el nombre escrito en el formulario -->
             <input type="submit" value="Buscar" (click)="buscarMunicipio()">
           </form>

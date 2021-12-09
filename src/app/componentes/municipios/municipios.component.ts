@@ -14,6 +14,7 @@ export class MunicipiosComponent implements OnInit {
   myControl = new FormControl();
   idMunicipio: string = ''
   municipios: Array<String> = []
+  fecha?:any = null
 
   municipio: Municipio = {
     codmuni: '',
@@ -39,8 +40,13 @@ export class MunicipiosComponent implements OnInit {
   }
 
   buscarMunicipio(): void {
-    if (this.idMunicipio != '') {
+    if (this.idMunicipio != '' && this.fecha != null) {
+      /*
       this.apiservice.getTemperaturaMunicipios(this.idMunicipio).subscribe(resp => {
+        this.tiempoM = resp
+      })
+      */
+      this.apiservice.getTemperaturaMunicipiosFecha(this.idMunicipio,this.fecha).subscribe(resp => {
         this.tiempoM = resp
       })
 
@@ -48,6 +54,7 @@ export class MunicipiosComponent implements OnInit {
         this.municipio = resp
       })
       this.idMunicipio=''
+      this.fecha=null
     }
   }
 }
