@@ -40,14 +40,16 @@
           <!-- Y le añadimos un pequño formulario donde metera el nombre de la Provincia o Municipio -->
           <br><br>
           <form>
-          <label>Provincia:</label>
+          <label style="padding-right: 10px;">Provincia:</label>
           <select name="miselect2" [(ngModel)]="idProvincia">
-            <option [ngValue]="item" *ngFor="let item of provincias">{{item}}</option>
+            <option [ngValue]="item" *ngFor="let item of provincias">{{item.toString().substring(3)}}</option>
           </select>
+          <br><br>
           <input type="submit" value="Buscar" (click)="buscarProvincia()">
         </form>
+        <br>
         <div *ngIf="tiempo.codprov!=''">
-          <p><b>Provincia:</b> {{ provincia.nombre }} - <b>Capital:</b> {{ provincia.capital }}</p>
+          <p><b>Provincia: </b> {{ provincia.nombre }} - <b>Capital:</b> {{ provincia.capital }}</p>
         </div>
         <div *ngIf="tiempo.hoy!=''">
           <p>

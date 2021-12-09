@@ -33,9 +33,9 @@ export class MunicipiosComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this.apiservice.getMunicipios().subscribe(resp => {
-      this.municipios = resp
-    })
+    //this.apiservice.getMunicipios().subscribe(resp => {
+    //  this.municipios = resp
+    //})
   }
 
   buscarMunicipio(): void {

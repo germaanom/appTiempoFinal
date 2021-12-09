@@ -42,8 +42,7 @@
           <br><br>
           <form>
             <div class="form-group mx-sm-3 mb-2">
-              <label for="nombreEjemplo" class="sr-only">Nombre:</label>
-              <label>Municipio:</label><input type="text" name="idMuni" [(ngModel)]="idMunicipio" /><br />
+              <label style="padding-right: 10px;">Municipio: </label><input type="text" name="idMuni" [(ngModel)]="idMunicipio" /><br />
             </div>
             <br>
   
@@ -54,7 +53,7 @@
           <div *ngIf="municipio.nombre!=''">
             <p>Municipio: <b>{{ municipio.nombre }}</b></p>
             <p>
-              Hoy ( {{ tiempoM.fecha }}): Maxima de <b>{{ tiempoM.maxima }}</b> ºC - Minima de <b>{{ tiempoM.minima }}</b> ºC
+              Hoy ( {{ tiempoM.fecha }} ): Maxima de <b>{{ tiempoM.maxima }}</b> ºC - Minima de <b>{{ tiempoM.minima }}</b> ºC
             </p>
           </div>
         </div>

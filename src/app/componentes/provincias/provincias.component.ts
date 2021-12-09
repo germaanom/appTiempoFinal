@@ -12,7 +12,7 @@ export class ProvinciasComponent implements OnInit {
   provincias: Array<String> = []
 
   idProvincia:string = ''
-  idP:string = 'ID'
+  idProvinciaFormat:string = ''
   
   provincia: Provincia = {
     codprov: '',
@@ -41,14 +41,16 @@ export class ProvinciasComponent implements OnInit {
   }
 
   buscarProvincia(): void {
+    this.idProvinciaFormat = this.idProvincia.toString().substring(0,2)
     if (this.idProvincia != '') {
-      this.apiservice.getProvinciasbyid(this.idProvincia).subscribe(resp => {
+      this.apiservice.getProvinciasbyid(this.idProvinciaFormat).subscribe(resp => {
         this.provincia = resp
       })
-      this.apiservice.getTemperaturaProvincia(this.idProvincia).subscribe(resp => {
+      this.apiservice.getTemperaturaProvincia(this.idProvinciaFormat).subscribe(resp => {
         this.tiempo = resp
-      })
+      })    
     }
   }
+
 
 }

@@ -40,4 +40,6 @@ export class ApiserviceService {
   getMunicipios(): Observable<Array<String>> {
     return this.http.get<Array<String>>('http://localhost:5000/municipios/')
   }
+
+
 }
