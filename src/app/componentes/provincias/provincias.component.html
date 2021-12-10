@@ -41,12 +41,12 @@
           <br><br>
           <form>
           <label style="padding-right: 10px;">Provincia:</label>
-          <select name="miselect2" [(ngModel)]="idProvincia">
+          <select name="miselect2" [(ngModel)]="idProvincia" required>
             <option [ngValue]="item" *ngFor="let item of provincias">{{item.toString().substring(3)}}</option>
           </select>
           <br><br>
           <label style="padding-right: 10px;">Fecha:</label>
-          <input type="date" name="fecha" [(ngModel)]="fecha" />
+          <input type="date" name="fecha" [(ngModel)]="fecha" required/>
           <br><br>
           <input type="submit" value="Buscar" (click)="buscarProvincia()">
         </form>
@@ -56,13 +56,13 @@
         </div>
         <div *ngIf="tiempo.hoy!=''">
           <p>
-            <b>Hoy ({{ tiempo.fecha }}):</b>
+            <b>Previsión para ({{ tiempo.fecha | date }}):</b>
             {{ tiempo.hoy }}
           </p>
         </div>
         <div *ngIf="tiempo.manana!=''">
           <p>
-            <b>Mañana:</b>
+            <b>Previsión para el siguiente día:</b>
             {{ tiempo.manana }}
           </p>
         </div>

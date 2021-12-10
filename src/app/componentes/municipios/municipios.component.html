@@ -42,11 +42,16 @@
           <br><br>
           <form>
             <div class="form-group mx-sm-3 mb-2">
-              <label style="padding-right: 10px;">Municipio: </label><input type="text" name="idMuni" [(ngModel)]="idMunicipio" /><br />
+              <label style="padding-right: 10px;">Municipio: </label>
+              <!-- <input type="text" name="idMuni" [(ngModel)]="idMunicipio" required/> -->
+              <select name="idMunicipio" [(ngModel)]="idMunicipio" required>
+                <option [ngValue]="item" *ngFor="let item of municipios">{{item.toString()}}</option>
+              </select>
+              <br />
             </div>
             <br>
             <label style="padding-right: 10px;">Fecha:</label>
-            <input type="date" name="fecha" [(ngModel)]="fecha" />
+            <input type="date" name="fecha" [(ngModel)]="fecha" required/>
             <br>
             <!-- Creamos el boton para que el usuario pueda subir el nombre escrito en el formulario -->
             <input type="submit" value="Buscar" (click)="buscarMunicipio()">
@@ -55,7 +60,7 @@
           <div *ngIf="municipio.nombre!=''">
             <p>Municipio: <b>{{ municipio.nombre }}</b></p>
             <p>
-              Hoy ( {{ tiempoM.fecha }} ): Maxima de <b>{{ tiempoM.maxima }}</b> ºC - Minima de <b>{{ tiempoM.minima }}</b> ºC
+              Previsión para ( {{ tiempoM.fecha }} ): Maxima de <b>{{ tiempoM.maxima }}</b> ºC - Minima de <b>{{ tiempoM.minima }}</b> ºC
             </p>
           </div>
         </div>

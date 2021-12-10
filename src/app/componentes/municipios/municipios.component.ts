@@ -34,18 +34,21 @@ export class MunicipiosComponent implements OnInit {
 
   ngOnInit(): void {
 
-    //this.apiservice.getMunicipios().subscribe(resp => {
-    //  this.municipios = resp
-    //})
+    this.apiservice.getMunicipios().subscribe(resp => {
+      this.municipios = resp
+    })
   }
 
   buscarMunicipio(): void {
     if (this.idMunicipio != '' && this.fecha != null) {
-      /*
-      this.apiservice.getTemperaturaMunicipios(this.idMunicipio).subscribe(resp => {
-        this.tiempoM = resp
-      })
-      */
+      //Quito la info de la anterior consulta
+      this.municipio.nombre=''
+      this.tiempoM.codmuni=''
+      this.tiempoM.fecha=''
+      this.tiempoM.lluvia=''
+      this.tiempoM.maxima=''
+      this.tiempoM.minima=''
+      
       this.apiservice.getTemperaturaMunicipiosFecha(this.idMunicipio,this.fecha).subscribe(resp => {
         this.tiempoM = resp
       })
